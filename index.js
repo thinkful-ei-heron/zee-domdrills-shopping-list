@@ -48,10 +48,15 @@ function renderShoppingList() {
   $('.shopping-list').html(shoppingListItemsString);
 }
 
+funtion addItemShoppingList(itemName) {
+    STORE.push({id: cuid(), name: itemName, checked: false})
+}
+
 function handleNewItemSubmit() {
   //this function will be responsible for when users add a new shopping list item
-  $('#shopping-list-form'.submit(function(event) {
+  $('form').submit(function(event) {
     event.preventDefault();
+    console.log('submit');
     const newItemName = $('shopping-list-entry').val();
     console.log(newItemName);
     $('shopping-list-entry').val('');
